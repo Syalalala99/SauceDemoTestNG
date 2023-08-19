@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.security.PublicKey;
+
 public class SauceDemoPage {
     //locator Login
     @FindBy(xpath = "//input[@id='user-name']")
@@ -32,6 +34,9 @@ public class SauceDemoPage {
     WebElement btnBack;
     @FindBy(xpath = "//a[@class='shopping_cart_link fa-layers fa-fw']//*[name()='svg']")
     WebElement btnShoppingCart;
+
+    @FindBy(xpath = "//span[@class='fa-layers-counter shopping_cart_badge']")
+    WebElement numberItem;
 
     //locator Checkout
     @FindBy(xpath = "//a[normalize-space()='CHECKOUT']")
@@ -115,7 +120,7 @@ public class SauceDemoPage {
         btnMenu.click();
         logoutMenu.click();
     }
-
+public String getItemNumber(){return numberItem.getText();}
     public String getTxtBlankAllert() {
         return blankLoginAllert.getText();
     }

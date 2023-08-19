@@ -19,7 +19,7 @@ public class Testing {
         driver = DriverSingleton.getDriver();
         driver.get("https://www.saucedemo.com/v1/index.html");
         sauceDemoPage = new SauceDemoPage();
-
+    
     }
 
     @AfterClass
@@ -53,6 +53,7 @@ public class Testing {
     @Test(priority = 4)
     public void addProduct() {
         sauceDemoPage.addProduct();
+        Assert.assertEquals(sauceDemoPage.getItemNumber(),"2");
         System.out.println("Add Product Test Case Success");
     }
 
